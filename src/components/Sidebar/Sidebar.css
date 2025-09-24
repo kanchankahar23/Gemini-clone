@@ -29,7 +29,14 @@
 }
 .sidebar .recent{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;.sidebar .recent-entry p {
+  font-size: 14px;
+  color: #282828;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 }
 .sidebar .recent-title{
     margin-top: 30px;
