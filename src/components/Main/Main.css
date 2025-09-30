@@ -114,59 +114,78 @@
     margin: 15px auto;
     text-align: center;
 }
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* important to control scroll inside response-box */
+}
+
 .response-box {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-height: 60vh;
-    overflow-y: auto;
+  flex: 1;
+  overflow-y: auto; /* scrollable */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.response-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.user-row {
+  flex-direction: row-reverse;
+}
+
+.msg-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
 
 .message {
-    padding: 12px 16px;
-    border-radius: 10px;
-    max-width: 70%;
-    font-size: 16px;
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  line-height: 1.4;
 }
 
 .user-msg {
-    align-self: flex-end;
-    background-color: #d1e7ff;.typing {
-  display: flex;
-  gap: 5px;
-}
-
-.typing span {
-  width: 8px;
-  height: 8px;
-  background: #555;
-  border-radius: 50%;
-  display: inline-block;
-  animation: blink 1.4s infinite both;
-}
-
-.typing span:nth-child(1) {
-  animation-delay: 0s;
-}
-.typing span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.typing span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes blink {
-  0% { opacity: .2; }
-  20% { opacity: 1; }
-  100% { opacity: .2; }
-}
-
-    color: #000;
+  background: #0078ff;
+  color: white;
+  border-bottom-right-radius: 2px;
 }
 
 .ai-msg {
-    align-self: flex-start;
-    background-color: #f0f4f9;
-    color: #333;
+  background: #f1f1f1;
+  color: #000;
+  border-bottom-left-radius: 2px;
+}
+
+/* Typing dots */
+.typing span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background: #888;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
 }

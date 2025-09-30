@@ -40,26 +40,40 @@ const Main = ({ messages, onSend, loading }) => {
                     {messages.map((msg, i) => (
                         <div
                             key={i}
-                            className={`message ${msg.role === "user" ? "user-msg" : "ai-msg"}`}
+                            className={`message-row ${msg.role === "user" ? "user-row" : "ai-row"}`}
                         >
-                            {msg.role === "user" ? (
-                                <h5>{msg.text}</h5>
-                            ) : (
-                                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                                    {msg.text}
-                                </ReactMarkdown>
-                            )}
+                            {/* Icon for user/AI */}
+                            <img
+                                src={msg.role === "user" ? assets.user_icon : assets.gemini_icon}
+                                alt={msg.role}
+                                className="msg-icon"
+                            />
+
+                            {/* Text/Markdown */}
+                            <div className={`message ${msg.role === "user" ? "user-msg" : "ai-msg"}`}>
+                                {msg.role === "user" ? (
+                                    <p>{msg.text}</p>
+                                ) : (
+                                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                        {msg.text}
+                                    </ReactMarkdown>
+                                )}
+                            </div>
                         </div>
                     ))}
 
                     {loading && (
-                        <div className="message ai-msg typing">
-                            <span></span><span></span><span></span>
+                        <div className="message-row ai-row">
+                            <img src={assets.gemini_icon} alt="ai" className="msg-icon" />
+                            <div className="message ai-msg typing">
+                                <span></span><span></span><span></span>
+                            </div>
                         </div>
                     )}
 
                     <div ref={messagesEndRef} />
                 </div>
+
 
                 {/* Input box */}
                 <div className="main-bottom">
