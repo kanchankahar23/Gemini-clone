@@ -17,8 +17,8 @@ This project demonstrates **modern frontend development** with clean design, com
 
 ## 🛠️ Tech Stack
 - **Frontend:** React, Vite  
-- **Styling:** CSS (or TailwindCSS / Material UI)  
-- **Packages:** React Markdown, Rehype Raw  
+- **Styling:** CSS   
+- **Packages:** React Markdown
 - **Version Control:** Git & GitHub  
 
 ---
